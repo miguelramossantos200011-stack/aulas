@@ -1,0 +1,34 @@
+import java.util.Locale;
+import java.util.Scanner;
+ public class Main {
+   static void main(String[] args) {
+
+   Scanner entrada = new Scanner(System.in);
+    entrada.useLocale(Locale.US);
+
+
+
+       double n;
+       double r;
+       double nn;
+       int cont;
+       cont = 1;
+    r = 0;
+
+    while (4 >= cont) {
+     System.out.print("insira a nota do " + cont + "º bimestre: ");
+     n = entrada.nextDouble();
+
+     r = n + r;
+     ++cont;
+    }
+    nn = r / 4;
+  if (nn >= 7){
+   System.out.println("aprovado, média = " + nn);
+  } else{
+    System.out.println("Reprovado, média = " + nn);
+
+  }
+
+ }
+}
