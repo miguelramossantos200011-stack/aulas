@@ -33,13 +33,15 @@ public class Main {
         String senha1 = ("");
 
 
-        System.out.print("insira seu e-mail: ");
+        System.out.println("Faça seu cadastro ");
+        
+        System.out.println("insira seu e-mail: ");
         email = entrada.nextLine();
 
-        System.out.print("insira sua senha: ");
+        System.out.println("insira sua senha: ");
         String senha = entrada.nextLine();
 
-        System.out.print("faça seu login ");
+        System.out.println("faça seu login. ");
 
         while (!senha.equals(senha1)) {
 
@@ -91,9 +93,6 @@ public class Main {
         }
 
     }
-
-
-}
 
 
 }
