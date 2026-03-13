@@ -1,34 +1,99 @@
+
 import java.util.Locale;
 import java.util.Scanner;
- public class Main {
-   static void main(String[] args) {
 
-   Scanner entrada = new Scanner(System.in);
-    entrada.useLocale(Locale.US);
+import static java.lang.Math.*;
+
+public class Main {
+    static void main(String[] args) {
+
+        Scanner entrada = new Scanner(System.in);
+        entrada.useLocale(Locale.US);
 
 
 
-       double n;
-       double r;
-       double nn;
-       int cont;
-       cont = 1;
-    r = 0;
+        double n;
+        double r;
+        double nn;
+        int cont;
+        cont = 1;
+        int trabe;
+        r = 0;
+        trabe = 0;
+        int trabecont;
+        trabecont = 0;
+        String mat;
+        double  aula;
+        aula = 0;
+        double pres;
+        pres = 0;
+        double freq;
+        freq = 0;
+        String email;
+        String senha1 = ("");
 
-    while (4 >= cont) {
-     System.out.print("insira a nota do " + cont + "º bimestre: ");
-     n = entrada.nextDouble();
 
-     r = n + r;
-     ++cont;
+        System.out.print("insira seu e-mail: ");
+        email = entrada.nextLine();
+
+        System.out.print("insira sua senha: ");
+        String senha = entrada.nextLine();
+
+        System.out.print("faça seu login ");
+
+        while (!senha.equals(senha1)) {
+
+            System.out.println("olá, " + email);
+
+            System.out.println("insira sua senha: ");
+            senha1 = entrada.nextLine();
+        }
+
+        System.out.print("insira a matéria: ");
+        mat = entrada.nextLine();
+
+        System.out.print("insira a qantidade de aulas dadas: ");
+        aula = entrada.nextInt();
+
+        System.out.print("insira a qantidade de presenças: ");
+        pres = entrada.nextInt();
+
+        while (4 >= cont) {
+                System.out.print("insira a nota do " + cont + "º bimestre: ");
+                n = entrada.nextDouble();
+
+            System.out.print("insira a quantidde de trabalhos entregues no " + cont + "º bimestre: ");
+            trabe = entrada.nextInt();
+            r = n + r;
+            ++cont;
+            trabecont = trabe + trabecont;
+        }
+        nn = r / 4;
+        freq = (pres / aula);
+
+
+        if (nn >= 7 && trabe >= 4 && freq >= 0.5) {
+            System.out.println("o/a "+ email + " está aprovado em " + mat + ", média = " + nn +", trabalhos entregues "+ trabecont +". Frequência = " + freq + "%");
+        }
+        else{
+            System.out.println("o/a "+ email + " está Reprovado em " + mat + ", média = " + nn +", trabalhos entregues "+ trabecont +". Frequência = " + freq + "%");
+
+        }
+
+        if (nn <= 7) {
+            System.out.println(" Reprovado por nota baixa");
+        }
+        if (trabe <= 4) {
+            System.out.println(" Reprovado por falta de trabalhos entregues");
+        }
+        if (freq <= 0.5) {
+            System.out.println(" Reprovado por faltas");
+        }
+
     }
-    nn = r / 4;
-  if (nn >= 7){
-   System.out.println("aprovado, média = " + nn);
-  } else{
-    System.out.println("Reprovado, média = " + nn);
 
-  }
 
- }
+}
+
+
 }
