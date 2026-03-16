@@ -1,0 +1,120 @@
+import java.util.Scanner;
+import java.util.Locale;
+
+public class calculadora {
+    public static void main(String[] args) {
+
+        Scanner calc = new Scanner (System.in);
+        calc.useLocale(Locale.US);
+        double n1, n2, res = 0;
+        int op = 0;
+
+
+        System.out.println(" _____________________________");
+        System.out.println("|                             |");
+        System.out.println("|           >olá<             |");
+        System.out.println("|         >insira<            |");
+        System.out.println("|        >numero 1<           |");
+        System.out.println("|                             |");
+        System.out.println("|_____________________________|");
+        n1 = calc.nextDouble();
+
+        System.out.println(" _____________________________");
+        System.out.println("|                             |");
+        System.out.println("|                             |");
+        System.out.println("|         >insira<            |");
+        System.out.println("|        >numero 2<           |");
+        System.out.println("|                             |");
+        System.out.println("|_____________________________|");
+        n2 = calc.nextDouble();
+
+        System.out.println(" _____________________________");
+        System.out.println("|                             |");
+        System.out.println("|     >Esolha a operação<     |");
+        System.out.println("|                             |");
+        System.out.println("|           >Digite<          |");
+        System.out.println("|                             |");
+        System.out.println("|       >1 para soma<         |");
+        System.out.println("|    >2 para subtração<       |");
+        System.out.println("|  >3 para multiplicação<     |");
+        System.out.println("|      >4 para divisão<       |");
+        System.out.println("|     >0 para desligar<       |");
+        System.out.println("|_____________________________|");
+        op = calc.nextInt();
+
+        switch (op) {
+            case 1 :
+                res = n1 + n2;
+                System.out.println(" ______________________________________________________________________________________");
+                System.out.println("|                             ");
+                System.out.println("|                             ");
+                System.out.println("|        >resultado<          ");
+                System.out.println("|  >"+ n1 +" + " + n2 + " =   " + res + "  <    ");
+                System.out.println("|                             ");
+                System.out.println("|");
+                break;
+
+            case 2 :
+                res = n1 - n2;
+                System.out.println(" _____________________________________________________________________________________");
+                System.out.println("|                             ");
+                System.out.println("|                             ");
+                System.out.println("|        >resultado<          ");
+                System.out.println("|   >"+ n1 +" - " + n2 + " =   " + res + "  <    ");
+                System.out.println("|                             ");
+                System.out.println("|");
+                break;
+
+            case 3 :
+                res = n1 * n2;
+                System.out.println(" ___________________________________________________________________________________________");
+                System.out.println("|                             ");
+                System.out.println("|                             ");
+                System.out.println("|        >resultado<          ");
+                System.out.println("|   >"+ n1 +" X " + n2 + " =   " + res + "  <   ");
+                System.out.println("|                             ");
+                System.out.println("|");
+                break;
+
+
+            case 4 :
+                res = n1 / n2;
+                System.out.println(" ___________________________________________________________________________________________");
+                System.out.println("|                             ");
+                System.out.println("|                             ");
+                System.out.println("|        >resultado<          ");
+                System.out.println("|  >"+ n1 +" / " + n2 + " =   " + res + "  <    ");
+                System.out.println("|                             ");
+                System.out.println("|");
+                break;
+
+            case 0 :
+
+                System.out.println(" _____________________________");
+                System.out.println("|                             |");
+                System.out.println("|                             |");
+                System.out.println("|       >até a próxima<       |");
+                System.out.println("|                             |");
+                System.out.println("|_____________________________|");
+                break;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
