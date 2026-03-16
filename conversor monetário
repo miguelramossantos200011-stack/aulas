@@ -1,0 +1,75 @@
+import java.util.Scanner;
+import java.util.Locale;
+
+
+public class conversor {
+    public static void main(String[] args) {
+       Scanner h = new Scanner(System.in);
+       h.useLocale(Locale.US);
+
+       float vlr, dll, bnn, real, kg, euro;
+       int cont1, cont2, md = 0;
+        cont2 = 1;
+
+       System.out.println("            Sistema de câmbio");
+       System.out.println("                 bem vindo     ");
+       System.out.println("quantas conversões você gostaria de fazer?");
+       cont1 = h.nextInt();
+
+       while (cont2 <= cont1) {
+
+           System.out.println("escolha o valor em R$ a ser convertido: ");
+           real = h.nextFloat();
+
+
+            System.out.println(" _____________________________");
+            System.out.println("|                             |");
+            System.out.println("| >     Esolha a moeda       <|");
+            System.out.println("|                             |");
+            System.out.println("|           >Digite<          |");
+            System.out.println("|                             |");
+            System.out.println("|         >1 para dolar<      |");
+            System.out.println("|         >2 para euro<       |");
+            System.out.println("|         >3 para secreto 1<  |");
+            System.out.println("|         >4 para secreto 2<  |");
+            System.out.println("|_____________________________|");
+            md = h.nextInt();
+
+            switch (md) {
+
+                case 1 :
+                    vlr = (float) (real / 5.26);
+                    System.out.println("o valor de " + real + "R$ é igual a " + vlr + " D$.");
+                    break;
+
+                case 2 :
+                    vlr = (float) (real / 6.05);
+                    System.out.println("o valor de " + real + "R$ é igual a " + vlr + " E$.");
+                    break;
+
+                case 3 :
+                    vlr = (float) (real / 0.60);
+                    System.out.println("o valor de " + real + "R$ é igual a " + vlr + " B$. (bananas nanicas)");
+                    break;
+
+                case 4 :
+                    vlr = (float) (real / 99.90);
+                    System.out.println("o valor de " + real + "R$ é igual a " + vlr + " KgP$. (Kg de picanha)");
+                    break;
+
+
+
+
+
+
+            }
+           ++cont2;
+
+        }
+
+
+
+
+
+    }
+}
