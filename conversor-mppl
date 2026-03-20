@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    void main() {
+        Scanner sc = new Scanner(System.in);
+        char resp;
+        int cont = 0;
+        do {
+
+            System.out.println("digite sua altura em metros: ");
+            double M = sc.nextDouble();
+            double P = (M * 39.3701);
+            System.out.println("sua altura em polegadas é " + P);
+            System.out.println("Deseja refazer?   s/n");
+            resp = sc.next().charAt(0);
+
+            if (M >= 1.80) {
+                cont = cont + 1;
+
+            }
+        }
+        while (resp != 'n');
+
+        System.out.println("o número de pessoas com altura ideal é : " + cont);
+
+
+    }
+
+}
