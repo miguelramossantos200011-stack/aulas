@@ -1,0 +1,90 @@
+
+body {
+    background-image: url("https://cdn.nexus.gg/assets/vidya/85761f76cae4450b927b2c326a59c565/images/screenshots/10.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header {
+    margin: auto;
+    margin-top: -50px;
+    font-size: 30px;
+    background-color: rgba(90, 10, 10, 0.9);
+    border: 4px;
+    border-style: solid;
+    text-align: center;
+    max-width: 60%;
+    padding: 10px 30px;
+
+
+}
+
+.intro {
+
+ margin-top: 100px;
+ background-color:rgba(20, 20, 20, 0.85);
+ font-size: 20px;
+ margin-left: 2.5%;
+ max-width: 20%;
+ text-align: center;
+ padding: 5px 5px;
+ color: #ffffff;
+
+
+}
+
+.texto1 {
+
+ border: 1px;
+ border-color: rgba(140, 151, 255, 0.171);
+ border-style: solid;
+ max-width: 70%;
+ background-color:rgba(0, 0, 0, 0.75);
+ color: rgb(230, 230, 230);
+ margin-left: 15px;
+ text-align: justify;
+ font-size: 18px;
+ padding: 10px 30px;
+ 
+
+}
+
+.gameplay {
+
+ color: #ffffff;
+ margin-top: 100px;
+ background-color: rgba(20, 20, 20, 0.85);
+ font-size: 20px;
+ margin-left: 2.5%;
+ max-width: 20%;
+ text-align: center;
+ padding: 5px 5px;
+  
+ 
+
+}
+
+.texto2 {
+
+ border: 1px;
+ border-color: rgba(140, 151, 255, 0.171);
+ border-style: solid;
+ max-width: 70%;
+ background-color:rgba(0, 0, 0, 0.75);
+ color: rgb(230, 230, 230);
+ margin-left: 15px;
+ text-align: justify;
+ font-size: 18px;
+ padding: 10px 30px;
+ 
+
+}
