@@ -1,0 +1,191 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class jogo {
+    public static void main(String[] args) {
+
+    int linha = 0;
+    int coluna = 0;
+    int vline = 0;
+    int value1 = 0;
+    int value2 = 0;
+
+    Scanner sc = new Scanner(System.in);
+
+      System.out.println("escreva a quantidade de nomes ");
+      vline = sc.nextInt();
+
+      int []V = new int [vline];
+
+      for (int i = 0; i < vline; i++) {
+
+          System.out.println("escreva os primeiros nomes dos pares: ");
+          V[i] = sc.nextInt();
+
+       }
+
+      int []V1 = new int [vline];
+
+       for (int i = 0; i < vline; i++) {
+
+        System.out.println("escreva os segundos nomes dos pares: ");
+        V1[i] = sc.nextInt();
+
+       }
+
+       System.out.println("selecione a quantidade de linhas da matriz");
+       linha = sc.nextInt();
+
+       System.out.println("selecione a quantidade de colunas da matriz");
+       coluna = sc.nextInt();
+
+
+        List<Integer> Vmatriz = new ArrayList<>();
+        for (int valor : V ) {
+
+            Vmatriz.add(valor);
+
+        }
+
+        for (int valor : V1 ) {
+
+            Vmatriz.add(valor);
+
+        }
+
+        Collections.shuffle(Vmatriz);
+
+        int[][] matriz = new int[linha][coluna];
+
+        int indiceLista = 0;
+
+        for (int i = 0; i < linha; i++) {
+            for (int j = 0; j < coluna; j++) {
+
+
+                matriz[i][j] = Vmatriz.get(indiceLista);
+                indiceLista++;
+            }
+        }
+
+
+        for (int i = 0; i < linha; i++) {
+            for (int j = 0; j < coluna; j++) {
+
+            System.out.print(matriz[i][j] + "\t\t\t");
+
+            }
+
+            System.out.println();
+
+        }
+
+        String [][]gabarito = new String[linha][coluna];
+
+        for (int i = 0; i < linha; i++) {
+            for (int j = 0; j < coluna; j++) {
+                gabarito[i][j] = ("*");
+            }
+        }
+
+        System.out.println("gabarito");
+        for (int i = 0; i < linha; i++) {
+            for (int j = 0; j < coluna; j++) {
+
+                System.out.print(gabarito[i][j] + "\t\t\t");
+
+            }
+
+            System.out.println();
+
+        }
+
+
+
+
+            System.out.println("selecione uma linha : ");
+            int lescolha = sc.nextInt();
+
+            lescolha = lescolha - 1;
+
+            System.out.println("selecione uma coluna : ");
+            int cescolha = sc.nextInt();
+
+            cescolha = cescolha - 1;
+
+            int celula = matriz[lescolha][cescolha];
+
+            gabarito[cescolha][lescolha] = String.valueOf(celula);
+            value1 = matriz[lescolha][cescolha];
+
+
+            System.out.println("gabarito");
+            for (int i = 0; i < linha; i++) {
+                for (int j = 0; j < coluna; j++) {
+
+                    System.out.print(gabarito[i][j] + "\t\t\t");
+
+                }
+
+                System.out.println();
+
+            }
+
+
+
+            System.out.println("selecione outra linha : ");
+            int lescolha2 = sc.nextInt();
+
+            System.out.println("selecione outra coluna : ");
+            int cescolha2 = sc.nextInt();
+
+            cescolha2 = cescolha2 - 1;
+
+            lescolha2 = lescolha2 - 1;
+
+            int celula2 = matriz[cescolha2][lescolha2];
+
+            gabarito[cescolha2][lescolha2] = String.valueOf(celula2);
+            value2 = matriz[lescolha2][cescolha2];
+
+            System.out.println("gabarito");
+            for (int i = 0; i < linha; i++) {
+                for (int j = 0; j < coluna; j++) {
+
+                    System.out.print(gabarito[i][j] + "\t\t\t");
+
+                }
+
+                System.out.println();
+
+            }
+
+        gabarito[lescolha][cescolha] = "*";
+        gabarito[lescolha2][cescolha2] = "*";
+
+        System.out.println("gabarito");
+        for (int i = 0; i < linha; i++) {
+            for (int j = 0; j < coluna; j++) {
+
+                System.out.print(gabarito[i][j] + "\t\t\t");
+
+            }
+
+            System.out.println();
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
