@@ -1,191 +1,310 @@
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
-public class jogo {
+public class Main {
     public static void main(String[] args) {
 
-    int linha = 0;
-    int coluna = 0;
-    int vline = 0;
-    int value1 = 0;
-    int value2 = 0;
+        int linha = 0;
+        int coluna = 0;
+        int vline = 0;
+        String value1;
+        String value2;
+        int pontosp1 = 0;
+        int pontosp2 = 0;
+        int celulastotal = 0;
+        int escolha = -1;
 
-    Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-      System.out.println("escreva a quantidade de nomes ");
-      vline = sc.nextInt();
+        do {
 
-      int []V = new int [vline];
+            System.out.println("==-==-==-==- Bem vindo ao jogo da memória -==-==-==-==");
+            System.out.println("==-==-==-==- Escolha [1] para começar o jogo -==-==-==-==");
+            System.out.println("==-==-==-==- Ou escolha [0]para fechar -==-==-==-==");
+            escolha = sc.nextInt();
 
-      for (int i = 0; i < vline; i++) {
-
-          System.out.println("escreva os primeiros nomes dos pares: ");
-          V[i] = sc.nextInt();
-
-       }
-
-      int []V1 = new int [vline];
-
-       for (int i = 0; i < vline; i++) {
-
-        System.out.println("escreva os segundos nomes dos pares: ");
-        V1[i] = sc.nextInt();
-
-       }
-
-       System.out.println("selecione a quantidade de linhas da matriz");
-       linha = sc.nextInt();
-
-       System.out.println("selecione a quantidade de colunas da matriz");
-       coluna = sc.nextInt();
-
-
-        List<Integer> Vmatriz = new ArrayList<>();
-        for (int valor : V ) {
-
-            Vmatriz.add(valor);
-
-        }
-
-        for (int valor : V1 ) {
-
-            Vmatriz.add(valor);
-
-        }
-
-        Collections.shuffle(Vmatriz);
-
-        int[][] matriz = new int[linha][coluna];
-
-        int indiceLista = 0;
-
-        for (int i = 0; i < linha; i++) {
-            for (int j = 0; j < coluna; j++) {
-
-
-                matriz[i][j] = Vmatriz.get(indiceLista);
-                indiceLista++;
+            if (escolha == 0) {
+                break;
             }
-        }
 
+            System.out.println("escreva a quantidade de pares: ");
+            vline = sc.nextInt();
+            sc.nextLine();
 
-        for (int i = 0; i < linha; i++) {
-            for (int j = 0; j < coluna; j++) {
+            String[] V = new String[vline];
 
-            System.out.print(matriz[i][j] + "\t\t\t");
+            int p = 1;
+
+            for (int i = 0; i < vline; i++) {
+
+                System.out.println("escreva o primeiro nome do par " + p +": ");
+                V[i] = sc.nextLine();
+
+                ++p;
 
             }
 
-            System.out.println();
+            String[] V1 = new String[vline];
 
-        }
+            int q = 1;
 
-        String [][]gabarito = new String[linha][coluna];
+            for (int i = 0; i < vline; i++) {
 
-        for (int i = 0; i < linha; i++) {
-            for (int j = 0; j < coluna; j++) {
-                gabarito[i][j] = ("*");
-            }
-        }
+                System.out.println("escreva o par de " + V[i] + ": ");
+                V1[i] = sc.nextLine();
 
-        System.out.println("gabarito");
-        for (int i = 0; i < linha; i++) {
-            for (int j = 0; j < coluna; j++) {
-
-                System.out.print(gabarito[i][j] + "\t\t\t");
+                ++q;
 
             }
 
-            System.out.println();
+            celulastotal = vline * 2;
+            linha = (int) Math.sqrt(celulastotal);
 
-        }
+            while (celulastotal % linha != 0) {
+                linha--;
+            }
 
+            coluna = celulastotal / linha;
 
+            List<String> Vmatriz = new ArrayList<>();
+            for (String valor : V) {
+                Vmatriz.add(valor);
+            }
 
+            for (String valor : V1) {
+                Vmatriz.add(valor);
+            }
 
-            System.out.println("selecione uma linha : ");
-            int lescolha = sc.nextInt();
+            Collections.shuffle(Vmatriz);
 
-            lescolha = lescolha - 1;
+            String[][] matriz = new String[linha][coluna];
+            int indiceLista = 0;
 
-            System.out.println("selecione uma coluna : ");
-            int cescolha = sc.nextInt();
+            for (int i = 0; i < linha; i++) {
+                for (int j = 0; j < coluna; j++) {
+                    matriz[i][j] = Vmatriz.get(indiceLista);
+                    indiceLista++;
+                }
+            }
 
-            cescolha = cescolha - 1;
+            String[][] gabarito = new String[linha][coluna];
 
-            int celula = matriz[lescolha][cescolha];
-
-            gabarito[cescolha][lescolha] = String.valueOf(celula);
-            value1 = matriz[lescolha][cescolha];
-
+            for (int i = 0; i < linha; i++) {
+                for (int j = 0; j < coluna; j++) {
+                    gabarito[i][j] = ("*");
+                }
+            }
 
             System.out.println("gabarito");
             for (int i = 0; i < linha; i++) {
                 for (int j = 0; j < coluna; j++) {
+                    System.out.printf("%-15s ", gabarito[i][j]);
+                }
+                System.out.println();
+            }
 
-                    System.out.print(gabarito[i][j] + "\t\t\t");
+            System.out.println("\n-=- PARES CADASTRADOS -=-");
+            for (int i = 0; i < vline; i++) {
+                System.out.println("Par " + (i + 1) + ": [" + V[i] + "] e [" + V1[i] + "]");
+            }
+            System.out.println("-==-==-==-==-==-==-==-==-==-==-==-==-==-\n");
+
+            boolean player1 = true;
+
+            do {
+                int lescolha = -1;
+                int cescolha = -1;
+                boolean validarescolha1 = false;
+
+                while (!validarescolha1) {
+                    System.out.println("selecione uma linha de 1 até " + linha + " : ");
+                    lescolha = sc.nextInt() - 1;
+
+                    System.out.println("selecione uma coluna de 1 até " + coluna + " : ");
+                    cescolha = sc.nextInt() - 1;
+
+                    if (lescolha < 0 || lescolha >= linha || cescolha < 0 || cescolha >= coluna) {
+
+                        System.out.println("\nTá inventando espaço? O tabuleiro tem " + linha + " linhas e " + coluna + " colunas. Escolhe direito, você que montou essa bomba!");
+
+                    } else if (!gabarito[lescolha][cescolha].equals("*")) {
+
+                        System.out.println("\nA lá o cara querendo roubar kkkkk, já foi, escolhe outra.");
+
+                    } else {
+
+                        validarescolha1 = true;
+
+                    }
+                }
+
+                String celula = matriz[lescolha][cescolha];
+                gabarito[lescolha][cescolha] = String.valueOf(celula);
+                value1 = matriz[lescolha][cescolha];
+
+                System.out.println("gabarito");
+                for (int i = 0; i < linha; i++) {
+                    for (int j = 0; j < coluna; j++) {
+                        System.out.printf("%-15s", gabarito[i][j]);
+                    }
+                    System.out.println();
+                }
+
+                int lescolha2 = -1;
+                int cescolha2 = -1;
+                boolean validarescolha2 = false;
+
+                while (!validarescolha2) {
+                    System.out.println("selecione outra linha de 1 até " + linha + " : ");
+                    lescolha2 = sc.nextInt() - 1;
+
+                    System.out.println("selecione outra coluna de 1 até " + coluna + " : ");
+                    cescolha2 = sc.nextInt() - 1;
+
+                    if (lescolha2 < 0 || lescolha2 >= linha || cescolha2 < 0 || cescolha2 >= coluna) {
+                        System.out.println("\nTá inventando espaço? O tabuleiro tem " + linha + " linhas e " + coluna + " colunas. Escolhe direito, você q montou essa bomba!");
+
+                    } else if (lescolha == lescolha2 && cescolha == cescolha2) {
+
+                        System.out.println("\nTá achando q eu sou otário? Você acabou de escolher essa carta agora. Escolhe outra animal!");
+
+                    } else if (!gabarito[lescolha2][cescolha2].equals("*")) {
+
+                        System.out.println("\nA lá o cara querendo roubar kkkkk, essa já foi, escolhe outra.");
+
+                    } else {
+
+                        validarescolha2 = true;
+
+                    }
+                }
+
+                String celula2 = matriz[lescolha2][cescolha2];
+                gabarito[lescolha2][cescolha2] = String.valueOf(celula2);
+                value2 = matriz[lescolha2][cescolha2];
+
+                System.out.println("gabarito");
+                for (int i = 0; i < linha; i++) {
+                    for (int j = 0; j < coluna; j++) {
+
+                        System.out.printf("%-15s", gabarito[i][j]);
+                    }
+                    System.out.println();
+                }
+
+                int b = 1;
+
+                for (int i = 0; i < 3; i++) {
+
+                    System.out.println("apagando em " + b);
+
+                    ++b;
+
+                    try {
+
+                        Thread.sleep(1000);
+
+                    } catch (InterruptedException e) {
+
+                        e.printStackTrace();
+
+                    }
 
                 }
 
-                System.out.println();
+                for (int i = 0; i < 50; ++i) {
 
-            }
-
-
-
-            System.out.println("selecione outra linha : ");
-            int lescolha2 = sc.nextInt();
-
-            System.out.println("selecione outra coluna : ");
-            int cescolha2 = sc.nextInt();
-
-            cescolha2 = cescolha2 - 1;
-
-            lescolha2 = lescolha2 - 1;
-
-            int celula2 = matriz[cescolha2][lescolha2];
-
-            gabarito[cescolha2][lescolha2] = String.valueOf(celula2);
-            value2 = matriz[lescolha2][cescolha2];
-
-            System.out.println("gabarito");
-            for (int i = 0; i < linha; i++) {
-                for (int j = 0; j < coluna; j++) {
-
-                    System.out.print(gabarito[i][j] + "\t\t\t");
+                    System.out.println();
 
                 }
 
+                boolean ponto = false;
+
+                for (int i = 0; i < vline; i++) {
+                    if ((value1.equals(V[i]) && value2.equals(V1[i])) || (value1.equals(V1[i]) && value2.equals(V[i]))) {
+                        ponto = true;
+                        break;
+                    }
+                }
+
+                if (ponto == true) {
+
+                    if (player1 == true) {
+
+                        System.out.println("ponto validado para player 1");
+                        pontosp1 = pontosp1 + 1;
+
+                    }
+
+                    if (player1 == false) {
+
+                        System.out.println("ponto validado para player 2");
+                        pontosp2 = pontosp2 + 1;
+
+                    }
+
+                } else {
+
+                    gabarito[lescolha][cescolha] = "*";
+                    gabarito[lescolha2][cescolha2] = "*";
+
+                    if (player1 == true) {
+
+                        System.out.println("par não encontrado");
+
+                        player1 = false;
+
+                        System.out.println("vez do player 2");
+
+                    } else {
+
+                        System.out.println("par não encontrado");
+
+                        player1 = true;
+
+                        System.out.println("vez do player 1");
+
+                    }
+                }
+
+                System.out.println();
+                System.out.println("pontos do player 1: " + pontosp1);
+                System.out.println("pontos do player 2: " + pontosp2);
+                System.out.println("pontos restantes: " + (vline - (pontosp1 + pontosp2)));
                 System.out.println();
 
+
+                System.out.println("gabarito");
+
+                for (int i = 0; i < linha; i++) {
+                    for (int j = 0; j < coluna; j++) {
+
+                        System.out.printf("%-15s ", gabarito[i][j]);
+
+                    }
+                    System.out.println();
+                }
+
+            } while (pontosp1 + pontosp2 < vline);
+
+            if (pontosp1 > pontosp2) {
+
+                System.out.println("player1 venceu por " + (pontosp1 - pontosp2) + " pontos");
+
+            } else if (pontosp2 > pontosp1) {
+
+                System.out.println("player2 venceu por " + (pontosp2 - pontosp1) + " pontos");
+
+            } else {
+
+                System.out.println("empate");
+
             }
 
-        gabarito[lescolha][cescolha] = "*";
-        gabarito[lescolha2][cescolha2] = "*";
+        } while (escolha != 0);
 
-        System.out.println("gabarito");
-        for (int i = 0; i < linha; i++) {
-            for (int j = 0; j < coluna; j++) {
-
-                System.out.print(gabarito[i][j] + "\t\t\t");
-
-            }
-
-            System.out.println();
-
-
-
-
-
-
-
-
-
-
-
-
-
+        sc.close();
     }
 }
