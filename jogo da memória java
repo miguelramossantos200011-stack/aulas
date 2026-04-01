@@ -302,7 +302,10 @@ public class Main {
                 System.out.println("empate");
 
             }
-
+            
+                pontosp2 = 0;
+                pontosp1 = 0;
+                
         } while (escolha != 0);
 
         sc.close();
