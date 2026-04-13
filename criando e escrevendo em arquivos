@@ -1,0 +1,88 @@
+import java.io.*;
+import java.util.Scanner;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+
+        String caminhoArquivo = "Outro.txt";
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+
+        do {
+
+            System.out.println("\n=====================================");
+            System.out.println("==============+ MENU +===============");
+            System.out.println("==+ [1] para escrever no arquivo +===");
+            System.out.println("==+ [2] para escrever no arquivo +===");
+            System.out.println("==+ [0] para sair +==================");
+            System.out.println("=====================================");
+            System.out.println("=======+ Escolha uma opção +=========");
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+
+                case 1:
+                    System.out.println("Digite o texto que deseja adicionar ao arquivo: ");
+                    String texto = scanner.nextLine();
+
+                    escrever_no_arquivo(caminhoArquivo, texto);
+                    break;
+
+                case 2:
+                    ler_arquivo(caminhoArquivo);
+                    break;
+
+                case 0:
+                    System.out.println("fechando sistema....");
+                    break;
+
+                default:
+                    System.out.println("opção inválida, tente novamente.");
+                    break;
+            }
+        } while (opcao != 0);
+        scanner.close();
+    }
+
+    public static void escrever_no_arquivo(String caminho, String texto) {
+
+        try (BufferedWriter escritor = new BufferedWriter(new FileWriter(caminho, true))) {
+
+            escritor.write(texto);
+            escritor.newLine();
+            System.out.println("Texto gravado com sucesso");
+
+        }catch (IOException e) {
+
+            System.out.println("erro ao escrever texto no arquivo: " + e.getMessage());
+
+        }
+
+    }
+
+    public static void ler_arquivo(String caminho) {
+
+        try (BufferedReader leitor = new BufferedReader(new FileReader(caminho))) {
+
+            String linha;
+
+            System.out.println(" --- conteúdo no arquivo ---");
+            while((linha = leitor.readLine()) != null) {
+
+                System.out.println(linha);
+
+            }
+
+            System.out.print("-------------------------------------------------------------------------------");
+
+        }catch (IOException e) {
+
+            System.out.println("erro ao ler o arquivo: " + e.getMessage());
+
+        }
+
+    }
+}
