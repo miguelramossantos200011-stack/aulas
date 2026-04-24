@@ -3,9 +3,30 @@
 
 void main() {
 
-    int[] nmrs = {6574, 6758, 89047, 2135, 365217, 1267, 56637, 7463, 452356, 753514, 56314765, 436152, 62734};
-    Somador sma = new Somador(nmrs);
+    Scanner sc = new Scanner(System.in);
 
-    System.out.println("Soma: " + sma.calcsma());
+    System.out.println("insira seu nome: ");
+    String nm = sc.nextLine();
+
+    System.out.println("Insira sua idade: ");
+    int idd = sc.nextInt();
+
+    PP pp = new PP(nm, idd);
+
+    System.out.println("infpss: ");
+    pp.exibirinf();
+
+    if (pp.isMiidd()){
+
+        System.out.println("Você é maior de idade");
+
+    } else {
+
+        System.out.println("Você é menor de idade");
+
+    }
+
+    sc.close();
+
 
 }
