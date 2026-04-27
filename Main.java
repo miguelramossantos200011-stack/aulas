@@ -1,32 +1,78 @@
 
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        double vlr;
+        String nm;
+        int op;
+
+        Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);
+
+        conta_bancaria minha_conta = new conta_bancaria(100.0);
+
+        System.out.println("Insira seu nome: ");
+        nm = sc.nextLine();
 
 
-void main() {
 
-    Scanner sc = new Scanner(System.in);
+        do{
 
-    System.out.println("insira seu nome: ");
-    String nm = sc.nextLine();
+            System.out.println("olá, " + nm + "selecione o tipo de operação que você deseja fazer :");
+            System.out.println("selecione: ");
+            System.out.println("[1] para depositar");
+            System.out.println("[2] para sacar");
+            System.out.println("[3] para verificar saldo");
+            System.out.println("[0] para sair");
+            op = sc.nextInt();
 
-    System.out.println("Insira sua idade: ");
-    int idd = sc.nextInt();
+            for (int i = 0; i < 10; i++) {
 
-    PP pp = new PP(nm, idd);
+                System.out.println();
 
-    System.out.println("infpss: ");
-    pp.exibirinf();
+            }
 
-    if (pp.isMiidd()){
+            switch (op) {
 
-        System.out.println("Você é maior de idade");
+                case 1:
 
-    } else {
+                    System.out.println("Qual valor você deseja depositar? ");
+                    vlr = sc.nextDouble();
 
-        System.out.println("Você é menor de idade");
+                    minha_conta.depositar(vlr);
+
+                    System.out.println("Saldo final: " + minha_conta.getSaldo());
+                    break;
+
+                case 2:
+
+                    System.out.println("Qual valor você deseja sacar? ");
+                    vlr = sc.nextDouble();
+
+                    minha_conta.sacar(vlr);
+
+                    System.out.println("Saldo final: " + minha_conta.getSaldo());
+                    break;
+
+                case 3:
+
+                    System.out.println("Saldo atual: " + minha_conta.getSaldo());
+                    break;
+
+                case 0:
+                    System.out.println("Desligando sistema");
+                    break;
+
+                default:
+                    System.out.println("operação inexistente, tente novamemte.");
+                    break;
+
+            }
+
+        }while(op != 0);
 
     }
-
-    sc.close();
-
-
 }
