@@ -1,78 +1,34 @@
-
-import java.util.Locale;
-import java.util.Scanner;
-
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-        double vlr;
-        String nm;
-        int op;
+        System.out.println("Criando e interagindo com meu fusca");
 
-        Scanner sc = new Scanner(System.in);
-        sc.useLocale(Locale.US);
+        carro meu_fusca = new carro();
 
-        conta_bancaria minha_conta = new conta_bancaria(100.0);
+        System.out.println("\n Tentando acelerar desligado...");
 
-        System.out.println("Insira seu nome: ");
-        nm = sc.nextLine();
+        meu_fusca.acelerar(20);
+
+        System.out.println("velocidade atual do fusca: " + meu_fusca.getVelocidade() + "km/h ");
+
+        System.out.println("\n agora vamos ligar o carro...");
+        meu_fusca.ligar();
 
 
+        meu_fusca.ligar();
 
-        do{
+        System.out.println("\n acelerando ");
+        meu_fusca.acelerar(15);
+        meu_fusca.acelerar(20);
 
-            System.out.println("olá, " + nm + "selecione o tipo de operação que você deseja fazer :");
-            System.out.println("selecione: ");
-            System.out.println("[1] para depositar");
-            System.out.println("[2] para sacar");
-            System.out.println("[3] para verificar saldo");
-            System.out.println("[0] para sair");
-            op = sc.nextInt();
+        System.out.println("velocidade atual do fusca:  " + meu_fusca.getVelocidade() + "kh/h");
 
-            for (int i = 0; i < 10; i++) {
+        System.out.println("\n freando um pouco");
+        meu_fusca.frear(10);
 
-                System.out.println();
-
-            }
-
-            switch (op) {
-
-                case 1:
-
-                    System.out.println("Qual valor você deseja depositar? ");
-                    vlr = sc.nextDouble();
-
-                    minha_conta.depositar(vlr);
-
-                    System.out.println("Saldo final: " + minha_conta.getSaldo());
-                    break;
-
-                case 2:
-
-                    System.out.println("Qual valor você deseja sacar? ");
-                    vlr = sc.nextDouble();
-
-                    minha_conta.sacar(vlr);
-
-                    System.out.println("Saldo final: " + minha_conta.getSaldo());
-                    break;
-
-                case 3:
-
-                    System.out.println("Saldo atual: " + minha_conta.getSaldo());
-                    break;
-
-                case 0:
-                    System.out.println("Desligando sistema");
-                    break;
-
-                default:
-                    System.out.println("operação inexistente, tente novamemte.");
-                    break;
-
-            }
-
-        }while(op != 0);
+        System.out.println("Velocodade final do fusca : " + meu_fusca.getVelocidade() + "km/h");
 
     }
 }
