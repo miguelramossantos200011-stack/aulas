@@ -1,34 +1,27 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+
+
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Criando e interagindo com meu fusca");
+        System.out.println("--- gerenciando a ateria do meu celular ---");
 
-        carro meu_fusca = new carro();
+        celular meu_celular = new celular();
 
-        System.out.println("\n Tentando acelerar desligado...");
+        System.out.println("\n Usando o Youtube por muito tempo...");
+        meu_celular.usar(20);
 
-        meu_fusca.acelerar(20);
+        System.out.println("\n Jogando um jogo pesado...");
+        meu_celular.usar(40);
+        System.out.println("bateria final após jogar: " + meu_celular.getnivel_bateria() + "%");
 
-        System.out.println("velocidade atual do fusca: " + meu_fusca.getVelocidade() + "km/h ");
+        System.out.println("conectando na tomada...");
+        meu_celular.carregar(80);
 
-        System.out.println("\n agora vamos ligar o carro...");
-        meu_fusca.ligar();
+        System.out.println("deixando carregar mais um pouco...");
+        meu_celular.carregar(80);
 
-
-        meu_fusca.ligar();
-
-        System.out.println("\n acelerando ");
-        meu_fusca.acelerar(15);
-        meu_fusca.acelerar(20);
-
-        System.out.println("velocidade atual do fusca:  " + meu_fusca.getVelocidade() + "kh/h");
-
-        System.out.println("\n freando um pouco");
-        meu_fusca.frear(10);
-
-        System.out.println("Velocodade final do fusca : " + meu_fusca.getVelocidade() + "km/h");
+        System.out.println("bateria final após carregar: " + meu_celular.getnivel_bateria() + "%");
 
     }
 }
