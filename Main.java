@@ -1,27 +1,23 @@
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
+public class Bot extends ListenerAdapter {
 
+    public static void main(String[] args) throws Exception {
+        String token = "SEU_TOKEN_AQUI";
 
-public class Main {
-    public static void main(String[] args) {
+        JDABuilder.createDefault(token)
+                .addEventListeners(new Bot())
+                .build();
+    }
 
-        System.out.println("--- gerenciando a ateria do meu celular ---");
+    @Override
+    public void onMessageReceived(MessageReceivedEvent event) {
+        if (event.getAuthor().isBot()) return;
 
-        celular meu_celular = new celular();
-
-        System.out.println("\n Usando o Youtube por muito tempo...");
-        meu_celular.usar(20);
-
-        System.out.println("\n Jogando um jogo pesado...");
-        meu_celular.usar(40);
-        System.out.println("bateria final após jogar: " + meu_celular.getnivel_bateria() + "%");
-
-        System.out.println("conectando na tomada...");
-        meu_celular.carregar(80);
-
-        System.out.println("deixando carregar mais um pouco...");
-        meu_celular.carregar(80);
-
-        System.out.println("bateria final após carregar: " + meu_celular.getnivel_bateria() + "%");
-
+        if (event.getMessage().getContentRaw().equalsIgnoreCase("!ping")) {
+            event.getChannel().sendMessage("Pong!").queue();
+        }
     }
 }
