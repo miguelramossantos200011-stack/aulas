@@ -1,0 +1,99 @@
+import java.util.Scanner;
+
+class Notificacao{
+    public void enviar(String mensagem){
+
+        System.out.println("enviando notificação...");
+
+    }
+}
+
+class NotificacaoSMS extends Notificacao{
+    public void enviar(String mensagem) {
+
+        System.out.println("\n[SMS] enviando torpedo...");
+        System.out.println("Conteúdo: " + mensagem);
+
+    }
+}
+
+class NotificacaoEmail extends Notificacao{
+    public void enviar(String mensagem){
+
+        System.out.println("\n[E-mail] enviando E-mail");
+        System.out.println("Assunto: Alerta de segurança");
+        System.out.println("Corpo: " + mensagem);
+
+    }
+}
+
+class NotificacaoWhatsapp extends Notificacao{
+    public void enviar(String mensagem){
+
+        System.out.println("\n[Whatsapp] enviando ZapZap...");
+        System.out.println("Conteúdo: " + mensagem);
+
+    }
+}
+
+class NotificacaoPushMobile extends Notificacao{
+    public void enviar(String mensagem){
+
+        System.out.println("\n[Push mobile] enviando mensagem...");
+        System.out.println("Conteúdo: " + mensagem);
+
+    }
+}
+
+
+
+public class Main {
+    public static void main(String[] args){
+
+        Scanner leitor = new Scanner(System.in);
+
+        Notificacao canal = null;
+
+        System.out.println("===+====+===+===+===+===+===+===+===+===+===");
+        System.out.println("como deseja receber o alerta");
+        System.out.println("1 --- SMS");
+        System.out.println("2 --- E-mail");
+        System.out.println("3 --- Whatsapp");
+        System.out.println("4 --- Push mobile");
+        System.out.println("0 - sair");
+        System.out.println("Escolha: ");
+
+        int op = leitor.nextInt();
+
+        switch (op) {
+
+            case 1:
+                canal = new NotificacaoSMS();
+                break;
+
+            case 2:
+                canal = new NotificacaoEmail();
+                break;
+
+            case 3:
+                canal = new NotificacaoWhatsapp();
+                break;
+
+            case 4:
+                canal = new NotificacaoPushMobile();
+                break;
+
+            case 0:
+                System.out.println("adeus......");
+                break;
+
+        }
+
+        if (canal != null) {
+
+            String alerta = "Atenção: um novo login foi feito num navegador desconhecido!";
+            canal.enviar(alerta);
+        }
+
+    }
+}
