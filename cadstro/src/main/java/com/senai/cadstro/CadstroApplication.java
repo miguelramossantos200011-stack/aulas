@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CadstroApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CadstroApplication.class, args);
-    }
 
+        SpringApplication.run(CadstroApplication.class, args);
+
+    }
 }
