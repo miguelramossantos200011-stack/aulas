@@ -1,0 +1,192 @@
+2026-08-20 11:44:03.572024-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]TABLEN IF NOT EXISTS venda(\000aid INT AUTO_INCREMENT PRIMARY KEY,\000aproduto VARCHAR(50),\000aValorUnitario DOUBLE,\000aQuantidade INT\000a);\000a"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE TABLEN IF NOT EXISTS venda(
+id INT AUTO_INCREMENT PRIMARY KEY,
+produto VARCHAR(50),
+ValorUnitario DOUBLE,
+Quantidade INT
+);
+ [42001-232]
+2026-08-20 11:45:50.977272-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+INSERT INTO Venda(Produto, Categoria, ValorUnitario, Quantudade)VALUES (?, ?, ?, ?) [42104-232]
+2026-08-20 11:45:55.776978-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+SELECT * FROM venda [42104-232]
+2026-08-20 11:46:46.898544-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+SELECT * FROM venda [42104-232]
+2026-08-20 11:47:05.080177-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+INSERT INTO Venda(Produto, Categoria, ValorUnitario, Quantudade)VALUES (?, ?, ?, ?) [42104-232]
+2026-08-20 11:47:06.877203-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+SELECT * FROM venda [42104-232]
+2026-08-20 11:47:36.545329-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]TABLEN IF NOT EXISTS Venda(\000aid INT AUTO_INCREMENT PRIMARY KEY,\000aproduto VARCHAR(50),\000aValorUnitario DOUBLE,\000aQuantidade INT\000a);\000a"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE TABLEN IF NOT EXISTS Venda(
+id INT AUTO_INCREMENT PRIMARY KEY,
+produto VARCHAR(50),
+ValorUnitario DOUBLE,
+Quantidade INT
+);
+ [42001-232]
+2026-08-20 11:47:57.824583-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+INSERT INTO Venda(Produto, Categoria, ValorUnitario, Quantudade)VALUES (?, ?, ?, ?) [42104-232]
+2026-08-20 11:47:59.431477-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+SELECT * FROM venda [42104-232]
+2026-08-20 11:51:26.734527-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+SELECT * FROM venda [42104-232]
+2026-08-20 11:51:32.766239-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+SELECT * FROM venda [42104-232]
+2026-08-20 11:51:41.547593-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]TABLEN IF NOT EXISTS Venda(\000aid INT AUTO_INCREMENT PRIMARY KEY,\000aproduto VARCHAR(50),\000aValorUnitario DOUBLE,\000aQuantidade INT\000a);\000a"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE TABLEN IF NOT EXISTS Venda(
+id INT AUTO_INCREMENT PRIMARY KEY,
+produto VARCHAR(50),
+ValorUnitario DOUBLE,
+Quantidade INT
+);
+ [42001-232]
+2026-08-20 11:51:49.321453-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+SELECT * FROM venda [42104-232]
+2026-08-20 11:52:59.236860-03:00 database: wrong user or password; user: "LEE MAH MAI"
+org.h2.message.DbException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at org.example.VendaDAO.getConexao(VendaDAO.java:23)
+	at org.example.VendaDAO.CriarTabelaSeNaoExisir(VendaDAO.java:38)
+	at org.example.VendaDAO.<init>(VendaDAO.java:17)
+	at org.example.Main.main(Main.java:13)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 15 more
+2026-08-20 11:53:35.245822-03:00 database: wrong user or password; user: "LEE MAH MAI"
+org.h2.message.DbException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at org.example.VendaDAO.getConexao(VendaDAO.java:23)
+	at org.example.VendaDAO.Salva(VendaDAO.java:55)
+	at org.example.Main.main(Main.java:45)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+2026-08-20 11:54:01.251123-03:00 database: wrong user or password; user: "ROOT"
+org.h2.message.DbException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at org.example.VendaDAO.getConexao(VendaDAO.java:23)
+	at org.example.VendaDAO.CriarTabelaSeNaoExisir(VendaDAO.java:38)
+	at org.example.VendaDAO.<init>(VendaDAO.java:17)
+	at org.example.Main.main(Main.java:13)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 15 more
+2026-08-20 11:54:11.815670-03:00 database: wrong user or password; user: "ROOT"
+org.h2.message.DbException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at org.example.VendaDAO.getConexao(VendaDAO.java:23)
+	at org.example.VendaDAO.Salva(VendaDAO.java:55)
+	at org.example.Main.main(Main.java:45)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+2026-08-20 11:54:43.887741-03:00 database: wrong user or password; user: "LEE MA MAI"
+org.h2.message.DbException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at org.example.VendaDAO.getConexao(VendaDAO.java:23)
+	at org.example.VendaDAO.CriarTabelaSeNaoExisir(VendaDAO.java:38)
+	at org.example.VendaDAO.<init>(VendaDAO.java:17)
+	at org.example.Main.main(Main.java:13)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 15 more
+2026-08-20 11:54:54.952326-03:00 database: wrong user or password; user: "LEE MA MAI"
+org.h2.message.DbException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at org.example.VendaDAO.getConexao(VendaDAO.java:23)
+	at org.example.VendaDAO.Salva(VendaDAO.java:55)
+	at org.example.Main.main(Main.java:45)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+2026-08-20 11:55:24.769501-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]TABLEN IF NOT EXISTS Venda(\000aid INT AUTO_INCREMENT PRIMARY KEY,\000aproduto VARCHAR(50),\000aValorUnitario DOUBLE,\000aQuantidade INT\000a);\000a"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE TABLEN IF NOT EXISTS Venda(
+id INT AUTO_INCREMENT PRIMARY KEY,
+produto VARCHAR(50),
+ValorUnitario DOUBLE,
+Quantidade INT
+);
+ [42001-232]
+2026-08-20 11:55:34.281206-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDA" not found (this database is empty); SQL statement:
+INSERT INTO Venda(Produto, Categoria, ValorUnitario, Quantudade)VALUES (?, ?, ?, ?) [42104-232]
